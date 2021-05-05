@@ -1,0 +1,22 @@
+﻿@model Vidly.ViewModel.IndexMovieViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@if (Model.Movies.Count == 0)
+{
+    <text>No movies registered.</text>
+}
+else
+{
+    <ul>
+        @foreach (var movie in Model.Movies)
+        {
+            <li>@movie.Name</li>
+        }
+    </ul>
+}
+
