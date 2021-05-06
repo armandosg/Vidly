@@ -191,6 +191,10 @@
     <Compile Include="Migrations\202105061749263_AddPropertiesToMovies.Designer.cs">
       <DependentUpon>202105061749263_AddPropertiesToMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105061755087_PopulateGenres.cs" />
+    <Compile Include="Migrations\202105061755087_PopulateGenres.Designer.cs">
+      <DependentUpon>202105061755087_PopulateGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -294,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105061749263_AddPropertiesToMovies.resx">
       <DependentUpon>202105061749263_AddPropertiesToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105061755087_PopulateGenres.resx">
+      <DependentUpon>202105061755087_PopulateGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
