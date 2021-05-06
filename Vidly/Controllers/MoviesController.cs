@@ -24,12 +24,6 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        private List<Movie> movies = new List<Movie>
-        {
-            new Movie { Id = 1, Name = "Shrek" },
-            new Movie { Id = 2, Name = "Interstellar" }
-        };
-
         public ActionResult Index()
         {
             var movies = _context.Movies.Include(c => c.Genre).ToList();
@@ -51,6 +45,18 @@ namespace Vidly.Controllers
                 return HttpNotFound();
 
             return View(movie);
+        }
+
+        public ActionResult Create()
+        {
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
         }
     }
 }
