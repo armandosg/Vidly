@@ -6,6 +6,8 @@
 
 <h2>Movies</h2>
 
+@Html.ActionLink("Add movie", "Create", "Movies", new { @class = "btn btn-primary" })
+
 @if (Model.Movies.Count == 0)
 {
     <text>No movies registered.</text>
