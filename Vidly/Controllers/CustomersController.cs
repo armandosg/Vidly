@@ -10,15 +10,23 @@ namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
-        private List<Customer> customers = new List<Customer>
+        private ApplicationDbContext _context;
+
+        public CustomersController()
         {
-            new Customer { Id = 1, Name = "Armando" },
-            new Customer { Id = 2, Name = "Ricardo" }
-        };
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
 
         // GET: Customers
         public ActionResult Index()
         {
+            var customers = _context.Customers.ToList();
+
             var viewModel = new IndexCustomerViewModel
             {
                 Customers = customers
@@ -30,14 +38,12 @@ namespace Vidly.Controllers
         public ActionResult Details(int id)
         {
             Customer customer;
-            try
-            {
-                customer = customers.ElementAt(id - 1);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
+
+            customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            
+            if (customer == null)
                 return HttpNotFound();
-            }
+
             return View(customer);
         }
     }
