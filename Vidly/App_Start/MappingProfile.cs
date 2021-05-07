@@ -17,6 +17,8 @@ namespace Vidly.App_Start
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MovieDto, Movie>()
                   .ForMember(dest => dest.Id, act => act.Ignore());
+
+            Mapper.CreateMap<Genre, GenreDto>();
         }
     }
 }
